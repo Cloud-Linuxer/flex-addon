@@ -1,0 +1,268 @@
+/* Flex 근무시간 합산 익스텐션 스타일 */
+
+.flex-extension-display {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 999999;
+  animation: fadeIn 0.3s ease-in;
+}
+
+/* 에러 표시 스타일 */
+.flex-extension-error {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 999999;
+  animation: fadeIn 0.3s ease-in;
+}
+
+.flex-error-container {
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  border-radius: 8px;
+  padding: 12px 16px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  max-width: 320px;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.flex-error-icon {
+  font-size: 20px;
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+.flex-error-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.flex-error-message {
+  font-size: 13px;
+  color: #991b1b;
+  line-height: 1.4;
+}
+
+.flex-error-retry {
+  background: #dc2626;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 6px 12px;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s;
+  align-self: flex-start;
+}
+
+.flex-error-retry:hover {
+  background: #b91c1c;
+}
+
+.flex-error-retry:active {
+  background: #991b1b;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.flex-total-container {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 8px 12px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  max-width: fit-content;
+  display: inline-flex;
+  align-items: flex-start;
+  gap: 8px;
+  position: relative;
+}
+
+.flex-toggle-btn {
+  background: none;
+  border: none;
+  color: #6b7280;
+  cursor: pointer;
+  padding: 0;
+  font-size: 10px;
+  line-height: 1;
+  width: 16px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s;
+  flex-shrink: 0;
+}
+
+.flex-toggle-btn:hover {
+  color: #111827;
+}
+
+.flex-content {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.flex-total-label {
+  font-size: 11px;
+  font-weight: 500;
+  color: #6b7280;
+  margin-bottom: 0;
+}
+
+.flex-total-time {
+  font-size: 18px;
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 0;
+}
+
+.flex-total-breakdown {
+  display: flex;
+  flex-direction: row;
+  gap: 6px;
+  font-size: 11px;
+  color: #6b7280;
+  padding-top: 0;
+  border-top: none;
+}
+
+.flex-breakdown-item {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.flex-breakdown-separator {
+  display: inline;
+}
+
+/* 예상 퇴근시간 */
+.flex-end-time {
+  margin-top: 4px;
+  padding-top: 4px;
+  border-top: 1px solid #f3f4f6;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.flex-end-time-label {
+  font-size: 10px;
+  font-weight: 500;
+  color: #9ca3af;
+  margin-bottom: 0;
+}
+
+.flex-end-time-value {
+  font-size: 13px;
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 0;
+}
+
+.flex-start-time {
+  font-size: 10px;
+  color: #9ca3af;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+  .flex-total-container {
+    padding: 16px 20px;
+  }
+
+  .flex-total-time {
+    font-size: 28px;
+  }
+
+  .flex-total-breakdown {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .flex-breakdown-separator {
+    display: none;
+  }
+}
+
+/* 다크모드 대응 */
+@media (prefers-color-scheme: dark) {
+  .flex-total-container {
+    background: #1f2937;
+    border-color: #374151;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  }
+
+  .flex-toggle-btn {
+    color: #9ca3af;
+  }
+
+  .flex-toggle-btn:hover {
+    color: #f9fafb;
+  }
+
+  .flex-total-label,
+  .flex-end-time-label {
+    color: #9ca3af;
+  }
+
+  .flex-total-time,
+  .flex-end-time-value {
+    color: #f9fafb;
+  }
+
+  .flex-total-breakdown,
+  .flex-breakdown-item {
+    color: #9ca3af;
+  }
+
+  .flex-total-breakdown,
+  .flex-end-time {
+    border-top-color: #374151;
+  }
+
+  .flex-start-time {
+    color: #6b7280;
+  }
+
+  .flex-error-container {
+    background: #7f1d1d;
+    border-color: #991b1b;
+  }
+
+  .flex-error-message {
+    color: #fecaca;
+  }
+
+  .flex-error-retry {
+    background: #dc2626;
+  }
+
+  .flex-error-retry:hover {
+    background: #ef4444;
+  }
+
+  .flex-error-retry:active {
+    background: #f87171;
+  }
+}
